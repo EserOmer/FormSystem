@@ -10,12 +10,12 @@ namespace FormSystem.DataLayer
     public class UnitOfWork : IUnitOfWork
     {
         private readonly FormContext _formContext;
-        private readonly UserRepository _userRepository;
+        public readonly UserRepository _userRepository;
        
-        public UnitOfWork(FormContext formContext, UserRepository userRepository)
+        public UnitOfWork()
         {
-            _formContext = formContext;
-            _userRepository = userRepository;
+            _formContext = new FormContext();
+            _userRepository = new UserRepository(_formContext);
         }
         public void Dispose()
         {
