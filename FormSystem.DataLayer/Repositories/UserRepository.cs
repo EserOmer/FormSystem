@@ -13,13 +13,10 @@ namespace FormSystem.DataLayer.Repositories
         {
             _formContext = context;
         }
-        public List<ENTUser> GetAllUser()
+        public ENTUser GetByMail(string mail)
         {
-            using (FormContext formContext = new FormContext())
-            {
-                return formContext.USER.ToList();
-            }
-
+            return _formContext.USER.SingleOrDefault(u => u.EMAIL == mail);
         }
+        
     }
 }

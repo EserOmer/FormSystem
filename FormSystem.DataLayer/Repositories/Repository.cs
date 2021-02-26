@@ -26,6 +26,11 @@ namespace FormSystem.DataLayer
             return _formContext.Set<T>().ToList();
         }
 
+        public T GetByID(int id)
+        {
+            return _formContext.Set<T>().Find(id);
+        }
+
         public void Save()
         {
             _formContext.SaveChanges();

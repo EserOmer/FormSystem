@@ -8,5 +8,6 @@ namespace FormSystem.DataLayer
 {
     public interface IUnitOfWork : IDisposable
     {
+
     }
 }
