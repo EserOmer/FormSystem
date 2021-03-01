@@ -1,18 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FormSystem.DataLayer.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FormSystem.DataLayer
 {
-    public class Repository<T> : IRepository<T> where T :class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly FormContext _formContext;
 
 
-        public Repository(FormContext context) 
+        public Repository(FormContext context)
         {
             _formContext = context;
         }
@@ -21,14 +23,13 @@ namespace FormSystem.DataLayer
             _formContext.Set<T>().Add(entity);
         }
 
-        public List<T> GetAll()
+        public List<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return _formContext.Set<T>().ToList();
+            return filter == null ? _formContext.Set<T>().ToList() : _formContext.Set<T>().Where(filter).ToList();
         }
-
-        public T GetByID(int id)
+        public T GetByID(Expression<Func<T, bool>> filter)
         {
-            return _formContext.Set<T>().Find(id);
+            return _formContext.Set<T>().SingleOrDefault(filter);
         }
 
         public void Save()
