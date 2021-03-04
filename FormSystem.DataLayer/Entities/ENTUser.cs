@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormSystem.DataLayer
 {
-    public class ENTUser
+    public class ENTUser : IEntity
     {
         public int ID { get; set; }
         public string NAME { get; set; }

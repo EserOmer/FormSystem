@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FormSystem.DataLayer
 {
-    public class ENTQuestionType : IEntity
+    public class UserRepository : Repository<ENTUser,FormContext>,IUserRepository
     {
-        public int ID { get; set; }
-        public string TYPE { get; set; }
     }
 }

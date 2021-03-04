@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FormSystem.Core\FormSystem.Core.csproj" />
     <ProjectReference Include="..\FormSystem.DataLayer\FormSystem.DataLayer.csproj" />
   </ItemGroup>
 

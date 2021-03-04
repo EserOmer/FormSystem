@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormSystem.DataLayer
 {
-    public class ENTForm
+    public class ENTForm : IEntity
     {
         public int ID { get; set; }
         public int USER_ID { get; set; }
